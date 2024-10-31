@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react()],
 
     server: {
-      port: 1332// Change 3000 to your desired port number
+      port: 1555// Change 3000 to your desired port number
     }
   
   
