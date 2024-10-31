@@ -1,0 +1,153 @@
+
+
+
+.me-auto {
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+.container {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #343a40;
+  
+}
+
+p {
+  font-size: 1.2rem;
+  color: #6c757d;
+}
+
+.card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #343a40;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.home{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+}
+
+
+
+
+
+/* about */
+.about{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+}
+
+/* signup */
+
+/* src/components/SignupForm.css */
+
+
+
+
+.signup-form {
+  width: 100%;
+  max-width: 600px; /* Control the width of the form */
+  padding: 20px;
+  margin-left: 25%;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100vh;
+}
+
+.signup-title {
+
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #343a40;
+  text-align: center;
+}
+
+
+
+/* About Us Page Styles */
+
+
+
+.about-us {
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* carosal */
+
+.carosal{
+  width: 100;
+  height: 100;
+}
+
+.best{
+  width: 100%;
+  max-width: 600px; /* Control the width of the form */
+  padding: 20px;
+  margin-left: 25%;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100vh;
+
+}
+
+.container{
+  background-image: url(); /* Path relative to the public directory */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+
+}
