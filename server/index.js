@@ -53,7 +53,6 @@ app.post('/signup', async (req, res) => {
 
 mongoose.connect(dbURI,{
 })
-
     .then(() => {
         console.log(' MongoDB connected successfully');
 
@@ -62,7 +61,6 @@ mongoose.connect(dbURI,{
              console.log("Server running at http://localhost:1332");
               }); 
     })
-    
     .catch((err) => {
         console.error('MongoDB connection error:', err);
 }) 

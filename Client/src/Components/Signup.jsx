@@ -2,48 +2,52 @@ import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col, Card } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useSnackbar } from 'notistack';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Signup = () => {
 
+const Signup = () => {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const navigate=useNavigate()
+  const { enqueueSnackbar } = useSnackbar();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit =  () => {
 
-    // if (password !== confirmPassword) {
-    //   alert('Passwords do not match');
-    //   return;
-    // }
+     const data ={
+      name,
+      email,
+      password,
+      confirmPassword
+     }
 
-
-    try {
-      const res = await axios.post('http://localhost:1332/signup', { name,email,password,confirmPassword
-        // email, password
-      
-      })
-      .then(result=>console.log(result))
-      navigate("/login")
-      .catch(err=> console.log(err))
- 
-
-      console.log(res.data);
-      alert('User registered successfully');
-      navigate('/'); // Redirect to the homepage
-    } 
-    
-    
-    catch (err) {
-      console.error(err);
-      alert('Error registering user');
-  
+    if (password !== confirmPassword) {
+      alert('Passwords do not match');
+      return;
     }
+
+    axios
+    .post("http://localhost:1555/signup",data)
+    .then(()=>{
+
+      enqueueSnackbar('signup  successfully', { variant: 'success' });
+      alert('User registered successfully');
+      navigate("/login")
+
+    })
+    .catch((error) => {
+      setLoading(false);
+      // alert('An error happened. Please Chack console');
+      enqueueSnackbar('Error', { variant: 'error' });
+      console.log(error);
+      alert('Error registering user');
+    });
   };
+    
+ 
 
   return (
     <Container>
@@ -98,7 +102,7 @@ const Signup = () => {
                   />
                 </Form.Group>
                 <div className="d-flex justify-content-center">
-                <Button variant="primary" type="submit" className="mt-4" block>
+                <Button variant="primary" type="submit" className="mt-4" >
                   Sign Up
                 </Button>
                 </div>

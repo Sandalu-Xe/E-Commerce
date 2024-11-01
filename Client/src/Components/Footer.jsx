@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
-
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa'
 const Footer = () => {
   return (
     <footer style={{ background: 'linear-gradient(45deg, #343a40, #1c1e21)', color: '#f8f9fa', padding: '40px 0' }}>
