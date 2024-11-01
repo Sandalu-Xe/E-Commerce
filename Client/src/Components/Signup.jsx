@@ -12,6 +12,7 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate=useNavigate()
   const { enqueueSnackbar } = useSnackbar();
 
@@ -28,9 +29,10 @@ const Signup = () => {
       alert('Passwords do not match');
       return;
     }
+    setLoading(true);
 
     axios
-    .post("http://localhost:1555/signup",data)
+    .post("http://localhost:1332/signup",data)
     .then(()=>{
 
       enqueueSnackbar('signup  successfully', { variant: 'success' });
@@ -102,7 +104,7 @@ const Signup = () => {
                   />
                 </Form.Group>
                 <div className="d-flex justify-content-center">
-                <Button variant="primary" type="submit" className="mt-4" >
+                <Button variant="primary" type="submit" className="mt-4"  >
                   Sign Up
                 </Button>
                 </div>

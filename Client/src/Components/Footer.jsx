@@ -39,22 +39,6 @@ const Footer = () => {
         </Row>
       </Container>
 
-      <style jsx>{`
-        .social-icon {
-          transition: transform 0.3s ease, color 0.3s ease;
-        }
-        .social-icon:hover {
-          transform: translateY(-5px);
-          color: #17a2b8;
-        }
-
-        a {
-          text-decoration: none;
-        }
-        a:hover {
-          text-decoration: underline;
-        }
-      `}</style>
     </footer>
   );
 };
