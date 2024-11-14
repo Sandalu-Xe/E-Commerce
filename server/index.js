@@ -27,14 +27,25 @@ app.get('/users', async (req, res) => {
     }
 });
 
-app.get('/login', async (req, res) => {
 
-    const user =await User.findOne({
-        email:req.body.email,
-        password:req.body.password,
-    })
+app.post("/login", async (req, res) => {
+    const { email, password } = req.body;
+    try {
+      const user = await Signup.findOne({ email });
+      if (!user) {
+        return res.json({ err: "User Not Found" });
+      }
+      if (user.password === password) {
+        return res.json({ status: "ok" });
+      } else {
+        return res.json({ status: "Incorrect Password" });
+      }
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ err: "Server Error" });
+    }
+  });
 
-});
 
 app.post('/signup', async (req, res) => {
     try {
@@ -50,6 +61,8 @@ app.post('/signup', async (req, res) => {
       res.status(500).json({ message: error.message });
     }
   });
+
+  
 
 mongoose.connect(dbURI,{
 })

@@ -1,55 +1,46 @@
 import React, { useState } from 'react';
-import { Form, Button, Container, Row, Col, Card } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Form, Button, Container,Row,Col,Card } from 'react-bootstrap';
 import axios from 'axios';
-import { useSnackbar } from 'notistack';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
+import { useSnackbar } from 'notistack';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
-
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [loading, setLoading] = useState(false);
-  const navigate=useNavigate()
+  const [loading, setLoading] = useState(false); // Added loading state
+  const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
 
-  const handleSubmit =  () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-     const data ={
+    const data = {
       name,
       email,
       password,
-      confirmPassword
-     }
+      confirmPassword,
+    };
 
-    if (password !== confirmPassword) {
-      alert('Passwords do not match');
-      return;
-    }
     setLoading(true);
 
     axios
-    .post("http://localhost:1332/signup",data)
-    .then(()=>{
-
-      enqueueSnackbar('signup  successfully', { variant: 'success' });
-      alert('User registered successfully');
-      navigate("/login")
-
-    })
-    .catch((error) => {
-      setLoading(false);
-      // alert('An error happened. Please Chack console');
-      enqueueSnackbar('Error', { variant: 'error' });
-      console.log(error);
-      alert('Error registering user');
-    });
+      .post('http://localhost:1332/signup', data)
+      .then(() => {
+        setLoading(false);
+        enqueueSnackbar('user regidtrtion sucessfully', { variant: 'success' });
+        navigate('/login');
+      })
+      .catch((error) => {
+        setLoading(false);
+        enqueueSnackbar('Error occurred. Check console for details', { variant: 'error' });
+        console.log(error);
+       
+      });
   };
     
- 
 
   return (
     <Container>
