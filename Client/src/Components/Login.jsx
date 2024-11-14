@@ -1,28 +1,52 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col, Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link ,useNavigate } from 'react-router-dom';
 
 
-const Login = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+const Login= () => {
+  const [user, setUser] = useState({
+    password: "",
+    email: "",
+  });
+  const navigate = useNavigate();
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUser((prevUser) => ({
+      ...prevUser,
+      [name]: value,
+    }));
+  };
+
+  // Define sendRequest function here
+  const sendRequest = async () => {
     try {
-        const response = await axios.post('http://localhost:5000/api/users/login', { email, password });
-        if (response.data.success) {
-            // Handle successful login
-            console.log('Login successful');
-        } else {
-            setError(response.data.message);
-        }
-    } catch (err) {
-        setError('An error occurred. Please try again.');
+      const res = await axios.post('http://localhost:1332/login', {
+        email: user.email,
+        password: user.password,
+      });
+      return res.data;
+    } catch (error) {
+      throw new Error("Error connecting to the server");
     }
-};
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await sendRequest();
+      if (response.status === "ok") {
+        alert("Login success");
+        navigate("/");
+      } else {
+        alert("Login error");
+      }
+    } catch (err) {
+      alert("Error during login: " + err.message);
+    }
+  };
+
 
   return (  
     <Container>
@@ -35,10 +59,11 @@ const Login = () => {
                 <Form.Group controlId="formBasicEmail">
                   <Form.Label>Email address</Form.Label>
                   <Form.Control 
-                    type="email" 
+                    type="email"
+                    name="email"
                     placeholder="Enter email" 
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    value={user.email}
+                    onChange={handleInputChange}
                     required
                   />
                 </Form.Group>
@@ -46,10 +71,12 @@ const Login = () => {
                 <Form.Group controlId="formBasicPassword" className="mt-3">
                   <Form.Label>Password</Form.Label>
                   <Form.Control 
+
                     type="password" 
+                    name='password'
                     placeholder="Password" 
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={user.password}
+                    onChange={handleInputChange}
                     required
                   />
                 </Form.Group>
