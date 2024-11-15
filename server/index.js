@@ -31,7 +31,7 @@ app.get('/users', async (req, res) => {
 app.post("/login", async (req, res) => {
     const { email, password } = req.body;
     try {
-      const user = await Signup.findOne({ email });
+      const user = await User.findOne({ email });
       if (!user) {
         return res.json({ err: "User Not Found" });
       }
@@ -61,8 +61,6 @@ app.post('/signup', async (req, res) => {
       res.status(500).json({ message: error.message });
     }
   });
-
-  
 
 mongoose.connect(dbURI,{
 })
