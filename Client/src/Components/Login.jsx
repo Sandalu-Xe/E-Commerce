@@ -1,10 +1,9 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col, Card } from 'react-bootstrap';
-import { Link ,useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-
-
-const Login= () => {
+const LoginForm = () => {
   const [user, setUser] = useState({
     password: "",
     email: "",
@@ -47,48 +46,38 @@ const Login= () => {
     }
   };
 
-
-  return (  
-    <Container>
-      <Row className="justify-content-md-center">
-        <Col xs={12} md={6}>
-          <Card className="p-4 mt-5">
+  return (
+    <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: "100vh" }}>
+      <Row>
+        <Col>
+          <Card className="shadow p-4" style={{ maxWidth: "400px" }}>
             <Card.Body>
-              <h2 className="mb-4 text-center">Login</h2>
+              <h3 className="text-center mb-4">Login</h3>
               <Form onSubmit={handleSubmit}>
-                <Form.Group controlId="formBasicEmail">
-                  <Form.Label>Email address</Form.Label>
-                  <Form.Control 
+                <Form.Group controlId="formEmail" className="mb-3">
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control
                     type="email"
                     name="email"
-                    placeholder="Enter email" 
                     value={user.email}
                     onChange={handleInputChange}
-                    required
+                    placeholder="Enter your email"
                   />
                 </Form.Group>
-
-                <Form.Group controlId="formBasicPassword" className="mt-3">
+                <Form.Group controlId="formPassword" className="mb-3">
                   <Form.Label>Password</Form.Label>
-                  <Form.Control 
-
-                    type="password" 
-                    name='password'
-                    placeholder="Password" 
+                  <Form.Control
+                    type="password"
+                    name="password"
                     value={user.password}
                     onChange={handleInputChange}
-                    required
+                    placeholder="Enter your password"
                   />
                 </Form.Group>
-                <div className="d-flex justify-content-center">
-                <Button variant="primary" type="submit" className="mt-4" >
+                <Button variant="primary" type="submit" className="w-100">
                   Login
                 </Button>
-                </div>
               </Form>
-              <div className="mt-3 text-center">
-                <Link to="/signup">Don't have an account? Sign up</Link>
-              </div>
             </Card.Body>
           </Card>
         </Col>
@@ -97,4 +86,4 @@ const Login= () => {
   );
 };
 
-export default Login;
+export default LoginForm;
