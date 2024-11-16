@@ -14,6 +14,7 @@ import BestSellersPage from './Components/BestSellersPage';
 import SpecialOffers from './Components/SpecialOffers';
 import LatestModelsPage from './Components/LatestModelsPage';
 import Payment from './Components/payment';
+import ContactUs from './Components/Contactus';
 
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
         <Route path="/best-sellers" element={<BestSellersPage/>} />
         <Route path="/Special-Offers" element={<SpecialOffers/>} />
         <Route path="/payment" element={<Payment />} />
-        
+        <Route path="/contactus" element={<ContactUs/>} />
         </Routes>
         <Footer/>
     </Router>
