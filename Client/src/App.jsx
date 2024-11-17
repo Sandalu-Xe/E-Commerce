@@ -2,19 +2,21 @@ import { useState } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 
+
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import HomePage from './Components/HomePage';
-import Signup from './Components/Signup';
+import HomePage from './Components/HomePage/HomePage.jsx';
+import Signup from './Components/Auth/Signup.jsx';
 import AboutPage from './Components/Aboutus';
 import NaviBar from './Components/NaviBar';
 import Footer from './Components/Footer';
-import Login from './Components/Login';
-import BestSellersPage from './Components/BestSellersPage';
-import SpecialOffers from './Components/SpecialOffers';
-import LatestModelsPage from './Components/LatestModelsPage';
+import Login from './Components/Auth/Login.jsx';
+import BestSellersPage from './Components/HomePage/Home-Inner/BestSellersPage';
+import SpecialOffers from './Components/HomePage/Home-Inner/SpecialOffers';
+import LatestModelsPage from './Components/HomePage/Home-Inner/LatestModelsPage.jsx';
 import Payment from './Components/payment';
 import ContactUs from './Components/Contactus';
+
 
 
 function App() {
