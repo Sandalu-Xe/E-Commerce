@@ -7,17 +7,15 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import HomePage from './Components/HomePage/HomePage.jsx';
 import Signup from './Components/Auth/Signup.jsx';
-import AboutPage from './Components/Aboutus';
-import NaviBar from './Components/NaviBar';
-import Footer from './Components/Footer';
+import AboutPage from './Components/Pages/Aboutus.jsx';
+import NaviBar from './Components/layout/NaviBar.jsx';
+import Footer from './Components/layout/Footer.jsx';
 import Login from './Components/Auth/Login.jsx';
 import BestSellersPage from './Components/HomePage/Home-Inner/BestSellersPage';
 import SpecialOffers from './Components/HomePage/Home-Inner/SpecialOffers';
 import LatestModelsPage from './Components/HomePage/Home-Inner/LatestModelsPage.jsx';
-import Payment from './Components/payment';
-import ContactUs from './Components/Contactus';
-
-
+import Payment from './Components/HomePage/Home-Inner/payment.jsx';
+import ContactUs from './Components/Pages/Contactus.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
