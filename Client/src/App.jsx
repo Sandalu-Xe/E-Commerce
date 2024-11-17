@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 
-
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import HomePage from './Components/HomePage/HomePage.jsx';

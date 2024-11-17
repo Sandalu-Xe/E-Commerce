@@ -1,106 +1,60 @@
-import React, { useState } from "react";
+
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
-const ContactUs = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+export const ContactUs = () => {
+  const form = useRef();
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log("Form submitted:", formData);
+
+    emailjs
+      .sendForm('service_12213', 
+        'template_zgdddkb', 
+        form.current, {
+        publicKey: 'uxdriekI7IRCw5LYM',
+      })
+      .then(
+        (result) => {
+          console.log('SUCCESS!',result.text);
+          alert("sent sucessfully")
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+          alert("sending failed")
+        },
+      );
   };
 
-  return (
-    <Container
-      className="d-flex justify-content-center align-items-center"
-      style={{ minHeight: "100vh" }}
-    >
-      <Row>
-        <Col md={12} lg={8}>
-          <Card
-            className="shadow-lg"
-            style={{
-              borderRadius: "15px",
-              background: "linear-gradient(135deg, #f8f9fa, #e9ecef)",
-            }}
-          >
-            <Card.Body>
-              <h3 className="text-center mb-4" style={{ color: "#343a40" }}>
-                Contact Us
-              </h3>
-              <Form onSubmit={handleSubmit}>
-                <Form.Group controlId="formName" className="mb-3">
-                  <Form.Label>Name</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    placeholder="Enter your full name"
-                    required
-                  />
-                </Form.Group>
-                <Form.Group controlId="formEmail" className="mb-3">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="Enter your email address"
-                    required
-                  />
-                </Form.Group>
-                <Form.Group controlId="formSubject" className="mb-3">
-                  <Form.Label>Subject</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    placeholder="Enter the subject"
-                  />
-                </Form.Group>
-                <Form.Group controlId="formMessage" className="mb-3">
-                  <Form.Label>Message</Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    rows={4}
-                    placeholder="Write your message here"
-                    required
-                  />
-                </Form.Group>
-                <Button
-                  variant="primary"
-                  type="submit"
-                  className="w-100"
-                  style={{
-                    borderRadius: "10px",
-                    background: "linear-gradient(135deg, #007bff, #0056b3)",
-                    border: "none",
-                  }}
-                >
-                  Send Message
-                </Button>
-              </Form>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+  return (<>
+   <Container className="mt-4">
+      <h2 className="text-center mb-4">Contact Us</h2>
+      <Form ref={form} onSubmit={sendEmail} className="p-4 border rounded shadow">
+        <Form.Group className="mb-3" controlId="formName">
+          <Form.Label>Name</Form.Label>
+          <Form.Control type="text" name="user_name" placeholder="Enter your name" required />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formEmail">
+          <Form.Label>Email</Form.Label>
+          <Form.Control type="email" name="user_email" placeholder="Enter your email" required />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formMessage">
+          <Form.Label>Message</Form.Label>
+          <Form.Control as="textarea" name="message" rows={4} placeholder="Write your message here" required />
+        </Form.Group>
+
+        <div className="d-grid">
+          <Button variant="primary" type="submit">
+            Send Message
+          </Button>
+        </div>
+      </Form>
     </Container>
+  </>
+
   );
 };
 
