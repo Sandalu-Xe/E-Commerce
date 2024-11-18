@@ -14,6 +14,11 @@ import SpecialOffers from './HomePage/Inner/SpecialOffers.jsx';
 import LatestModelsPage from './HomePage/Inner/LatestModelsPage.jsx';
 import Payment from './Pages/Payment/payment.jsx';
 import ContactUs from './Pages/Contactus/Contactus.jsx';
+import Layout from './Components/layout.jsx';
+import Home from './Pages/Home/home.jsx';
+import Detail from './Pages/Details/details.jsx';
+i
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -32,6 +37,10 @@ function App() {
         <Route path="/Special-Offers" element={<SpecialOffers/>} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/contactus" element={<ContactUs/>} />
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path='/:slug' element={< Detail/>} />
+        </Route>
         </Routes>
         <Footer/>
     </Router>
