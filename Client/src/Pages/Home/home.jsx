@@ -1,6 +1,6 @@
 import React from 'react'
-import { products } from '../products'
-import ProductCart from '../components/productCart'
+import { products } from '.'
+import ProductCart from '../../Components/product.jsx'
 const Home = () => {
   return (
     <div>
