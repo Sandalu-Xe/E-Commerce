@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Button, Carousel } from 'react-bootstrap';
 import Accordion from 'react-bootstrap/Accordion';
-import ExampleCarouselImage from './Home-Inner/ExampleCarouselImage';
+import ExampleCarouselImage from './Inner/ExampleCarouselImage';
 
 const cardData = [
   {
