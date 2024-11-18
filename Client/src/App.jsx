@@ -5,16 +5,16 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import HomePage from './Components/HomePage/HomePage.jsx';
-import Signup from './Components/Auth/Signup.jsx';
-import AboutPage from './Components/Pages/Aboutus.jsx';
-import NaviBar from './Components/layout/NaviBar.jsx';
-import Footer from './Components/layout/Footer.jsx';
-import Login from './Components/Auth/Login.jsx';
-import BestSellersPage from './Components/HomePage/Home-Inner/BestSellersPage';
-import SpecialOffers from './Components/HomePage/Home-Inner/SpecialOffers';
-import LatestModelsPage from './Components/HomePage/Home-Inner/LatestModelsPage.jsx';
-import Payment from './Components/HomePage/Home-Inner/payment.jsx';
-import ContactUs from './Components/Pages/Contactus.jsx';
+import Signup from './Auth/Signup.jsx';
+import AboutPage from './Pages/Aboutus/Aboutus.jsx';
+import NaviBar from './layout/NaviBar.jsx';
+import Footer from './layout/Footer.jsx';
+import Login from './Auth/Login.jsx';
+import BestSellersPage from './HomePage/Inner/BestSellersPage.jsx';
+import SpecialOffers from './HomePage/Inner/SpecialOffers.jsx';
+import LatestModelsPage from './HomePage/Inner/LatestModelsPage.jsx';
+import Payment from './Pages/Payment/payment.jsx';
+import ContactUs from './Pages/Contactus/Contactus.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
