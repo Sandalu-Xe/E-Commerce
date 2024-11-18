@@ -15,8 +15,8 @@ const NaviBar = () => {
             <Nav.Link as={Link} to="/"><FaHome /> Home</Nav.Link>
             <Nav.Link as={Link} to="/login"> <FaSignInAlt /> Login</Nav.Link>
             <Nav.Link as={Link} to="/signup"> <FaUserPlus /> Sign Up</Nav.Link>
-            <Nav.Link as={Link} to="/about"> <FaInfoCircle /> About Us</Nav.Link>
             <Nav.Link as={Link} to="/contactus"> <FaEnvelope /> Contact Us</Nav.Link>
+            <Nav.Link as={Link} to="/about"> <FaInfoCircle /> About Us</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

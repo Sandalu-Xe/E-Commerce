@@ -1,5 +1,5 @@
 
-import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
+import { Container, Form, Button } from "react-bootstrap";
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
@@ -21,7 +21,7 @@ export const ContactUs = () => {
           alert("sent sucessfully")
         },
         (error) => {
-          console.log('FAILED...', error.text);
+          console.log('FAILED...', error.text); 
           alert("sending failed")
         },
       );
