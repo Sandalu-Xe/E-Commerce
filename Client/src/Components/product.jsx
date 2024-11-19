@@ -1,8 +1,8 @@
 import React from 'react' 
 import { Link } from 'react-router-dom';
-import iconCart from '../assets/images/iconCart.png'
+import iconCart from '../assets/image/iconCart.png'
 import { useSelector, useDispatch } from 'react-redux';
-import { addToCart } from '../stores/cart';
+import { addToCart } from '../Store/Cart.jsx';
 
 const ProductCart = (props) => {
     const carts = useSelector(store => store.cart.items);

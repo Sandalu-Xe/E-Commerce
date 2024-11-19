@@ -7,4 +7,4 @@ export default defineConfig({
     server: {
       port: 1555// Change 3000 to your desired port number
     }
-})
+});

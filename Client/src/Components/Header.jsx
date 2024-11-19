@@ -1,8 +1,8 @@
 import React, { useState, useEffect} from 'react' 
 import { Link } from 'react-router-dom'
-import iconCart from '../assets/images/iconCart.png' 
+import iconCart from '../assets/image/iconCart.png' 
 import { useSelector, useDispatch } from 'react-redux' 
-import { toggleStatusTab } from '../stores/cart'
+import { toggleStatusTab } from '../Store/Cart.jsx'
 
 const Header = () => {
     const [totalQuantity, setTotalQuantity] = useState(0);

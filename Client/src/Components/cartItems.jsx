@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react' 
-import { products } from '../products';
+import { products } from '../Pages/products.jsx';
 import { useDispatch } from 'react-redux';
-import { changeQuantity } from '../stores/cart';
+import { changeQuantity } from '../Store/Cart.jsx';
 
 const CartItem = (props) => {
     const {productId, quantity} = props.data;
