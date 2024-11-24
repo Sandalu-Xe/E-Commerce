@@ -15,10 +15,6 @@ import SpecialOffers from './HomePage/Inner/SpecialOffers.jsx';
 import LatestModelsPage from './HomePage/Inner/LatestModelsPage.jsx';
 import Payment from './Pages/Payment/payment.jsx';
 import ContactUs from './Pages/Contactus/Contactus.jsx';
-import Layout from './Components/layout.jsx';
-import Home from './Pages/Home/home.jsx';
-import Detail from './Pages/Details/details.jsx';
-
 
 
 
