@@ -4,16 +4,22 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import HomePage from './Components/HomePage';
-import Signup from './Components/Signup';
-import AboutPage from './Components/Aboutus';
-import NaviBar from './Components/NaviBar';
-import Footer from './Components/Footer';
-import Login from './Components/Login';
-import BestSellersPage from './Components/BestSellersPage';
-import SpecialOffers from './Components/SpecialOffers';
-import LatestModelsPage from './Components/LatestModelsPage';
-import Payment from './Components/payment';
+import HomePage from './HomePage/HomePage.jsx';
+import Signup from './Auth/Signup.jsx';
+import AboutPage from './Pages/Aboutus/Aboutus.jsx';
+import NaviBar from './layout/NaviBar.jsx';
+import Footer from './layout/Footer.jsx';
+import Login from './Auth/Login.jsx';
+import BestSellersPage from './HomePage/Inner/BestSellersPage.jsx';
+import SpecialOffers from './HomePage/Inner/SpecialOffers.jsx';
+import LatestModelsPage from './HomePage/Inner/LatestModelsPage.jsx';
+import Payment from './Pages/Payment/payment.jsx';
+import ContactUs from './Pages/Contactus/Contactus.jsx';
+import Layout from './Components/layout.jsx';
+import Home from './Pages/Home/home.jsx';
+import Detail from './Pages/Details/details.jsx';
+
+
 
 
 function App() {
@@ -32,7 +38,7 @@ function App() {
         <Route path="/best-sellers" element={<BestSellersPage/>} />
         <Route path="/Special-Offers" element={<SpecialOffers/>} />
         <Route path="/payment" element={<Payment />} />
-        
+        <Route path="/contactus" element={<ContactUs/>} />
         </Routes>
         <Footer/>
     </Router>

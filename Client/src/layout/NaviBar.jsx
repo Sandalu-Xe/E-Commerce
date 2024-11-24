@@ -2,7 +2,7 @@
 import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { FaHome, FaSignInAlt, FaUserPlus, FaInfoCircle } from 'react-icons/fa';
+import { FaHome, FaSignInAlt, FaUserPlus, FaInfoCircle,FaEnvelope } from 'react-icons/fa';
 
 const NaviBar = () => {
   return (
@@ -15,6 +15,7 @@ const NaviBar = () => {
             <Nav.Link as={Link} to="/"><FaHome /> Home</Nav.Link>
             <Nav.Link as={Link} to="/login"> <FaSignInAlt /> Login</Nav.Link>
             <Nav.Link as={Link} to="/signup"> <FaUserPlus /> Sign Up</Nav.Link>
+            <Nav.Link as={Link} to="/contactus"> <FaEnvelope /> Contact Us</Nav.Link>
             <Nav.Link as={Link} to="/about"> <FaInfoCircle /> About Us</Nav.Link>
           </Nav>
         </Navbar.Collapse>
@@ -22,5 +23,4 @@ const NaviBar = () => {
     </Navbar>
   );
 };
-
 export default NaviBar;

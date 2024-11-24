@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Button, Carousel } from 'react-bootstrap';
 import Accordion from 'react-bootstrap/Accordion';
-import ExampleCarouselImage from './ExampleCarouselImage';
+import ExampleCarouselImage from './Inner/ExampleCarouselImage';
 
 const cardData = [
   {
@@ -48,6 +48,8 @@ const cardData = [
     url: '/latest-models',
   },
 ];
+
+
 
 const HomePage = () => {
   const [index, setIndex] = useState(0);
