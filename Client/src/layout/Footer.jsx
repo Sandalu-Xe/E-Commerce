@@ -1,7 +1,16 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa'
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa'
+
+
+
 const Footer = () => {
+  const haddlesendmesseage=()=>{
+    const phonenumber="+94761136338";
+    const message="send me messege";
+    const url = `https://wa.me/${phonenumber}?text=${encodeURIComponent(message)}`
+    window.open(url, '_blank');
+  }
   return (
     <footer style={{ background: 'linear-gradient(45deg, #343a40, #1c1e21)', color: '#f8f9fa', padding: '40px 0' }}>
       <Container>
@@ -20,6 +29,9 @@ const Footer = () => {
               </a>
               <a href="https://www.linkedin.com" className="text-white mx-2" aria-label="LinkedIn">
                 <FaLinkedin size={30} className="social-icon" />
+              </a>
+              <a className="text-white mx-2" aria-label="LinkedIn">
+                <FaWhatsapp size={30} className="social-icon" onClick={haddlesendmesseage} />
               </a>
             </div>
           </Col>
