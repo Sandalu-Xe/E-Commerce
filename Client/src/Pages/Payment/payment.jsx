@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Card, Button, Alert } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button, Alert, Badge } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -41,12 +41,13 @@ const ProductCard = ({ product, onAddToCart }) => (
 );
 
 const Payment = () => {
+  const [cartCount, setCartCount] = useState(0); // Tracks the total number of items in the cart
   const [showAlert, setShowAlert] = useState(false);
 
   const handleAddToCart = () => {
+    setCartCount(cartCount + 1); // Increment the cart count
     setShowAlert(true);
-    setTimeout(() => setShowAlert(false), 3000); 
-    // Hide alert after 3 seconds
+    setTimeout(() => setShowAlert(false), 3000); // Hide alert after 3 seconds
   };
 
   const products = [
@@ -69,12 +70,6 @@ const Payment = () => {
       image: 'https://img.freepik.com/free-photo/phone-14-front-side-arabic-themed-background_187299-35431.jpg?size=626&ext=jpg&ga=GA1.1.1435214330.1722094459&semt=ais_user'
     },
     {
-      name: 'Product 3',
-      description: 'This is a detailed description of product 3.',
-      price: '$299.99',
-      image: 'https://img.freepik.com/free-photo/phone-14-front-side-arabic-themed-background_187299-35431.jpg?size=626&ext=jpg&ga=GA1.1.1435214330.1722094459&semt=ais_user'
-    },
-    {
       name: 'Product 1',
       description: 'This is a detailed description of product 1.',
       price: '$99.99',
@@ -86,10 +81,22 @@ const Payment = () => {
       price: '$199.99',
       image: 'https://img.freepik.com/free-photo/ramadan-phone-14-screen-lantern-front-view-white-background_187299-35103.jpg?size=626&ext=jpg&ga=GA1.1.1435214330.1722094459&semt=ais_user'
     },
+    {
+      name: 'Product 3',
+      description: 'This is a detailed description of product 3.',
+      price: '$299.99',
+      image: 'https://img.freepik.com/free-photo/phone-14-front-side-arabic-themed-background_187299-35431.jpg?size=626&ext=jpg&ga=GA1.1.1435214330.1722094459&semt=ais_user'
+    }
   ];
 
   return (
     <Container>
+      <div className="d-flex justify-content-between align-items-center my-3">
+        <h2>Products</h2>
+        <h4>
+          Cart: <Badge bg="secondary">{cartCount}</Badge>
+        </h4>
+      </div>
       {showAlert && (
         <Alert variant="success" onClose={() => setShowAlert(false)} dismissible>
           Product added to cart!
