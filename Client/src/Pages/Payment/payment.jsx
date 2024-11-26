@@ -10,8 +10,10 @@ const BuyButton = ({ onAddToCart }) => {
     onAddToCart();
   };
 
+  
+
   const handlePayNow = () => {
-    navigate('/payment');
+    navigate('/product');
   };
 
   return (

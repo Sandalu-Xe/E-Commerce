@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Card, Button, Form, Badge } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useNavigate } from 'react-router-dom';
 
 const ProductPage = () => {
+  const navigate = useNavigate();
   const [quantity, setQuantity] = useState(1);
 
   const handleQuantityChange = (action) => {
@@ -11,6 +13,10 @@ const ProductPage = () => {
     } else if (action === "decrement" && quantity > 1) {
       setQuantity(quantity - 1);
     }
+  };
+
+  const handleCheckout = () => {
+    navigate('/checkout');
   };
 
   const product = {
@@ -99,7 +105,7 @@ const ProductPage = () => {
               <Button variant="dark" className="w-100">
                 Add to Cart
               </Button>
-              <Button variant="primary" className="w-100 mt-2">
+              <Button variant="primary" className="w-100 mt-2" onClick={handleCheckout}>
                 Buy Now
               </Button>
             </Col>
